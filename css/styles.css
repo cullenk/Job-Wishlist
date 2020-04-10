@@ -1,0 +1,186 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+}
+
+/* Main Page */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  color: rgba(52, 23, 124, .8)
+}
+
+.total-jobs {
+  color: gray;
+}
+
+.fa-magic {
+  margin-right: 20px;
+}
+
+.add-jobs-button {
+  color: gray;
+  width: 400px;
+  margin: 20px auto;
+  padding: 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Add Job Pop-Up Form */
+
+.add-job-form {
+  height: 400px;
+  width: 400px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: white;
+}
+
+.add-job-form.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.job-form-body {
+  height: 300px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 8px;
+  margin: 20px auto;
+}
+
+.input-field {
+   position: relative;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.input-field input:focus {
+  outline: none;
+  border: 2px solid #9933ff;
+}
+
+.input-field input,
+.submit-job-button {
+  width: 70%;
+  padding: 15px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.input-field .icon {
+  opacity: .3;
+  position: absolute;
+  right: 90px;
+}
+
+.submit-job-button {
+  color: white;
+  background-color: #9933ff;
+  cursor: pointer;
+}
+
+/* Job Cards */
+
+.job-cards {
+  height: 100vh;
+}
+
+.job-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 450px;
+  height: 200px;
+  margin: 20px auto;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: salmon;
+}
+
+.job-card-content {
+  display: flex;
+}
+
+.fa-copyright {
+  padding: 10px;
+}
+
+.job-card-text {
+  width: 100%;
+}
+
+.job-card-company {
+  color: white;
+  margin: 10px;
+}
+
+.job-card-title {
+  color: lightgray;
+  margin: 10px;
+}
+
+.job-card-time-stamp {
+  display: inline-block;
+  padding: 5px;
+  align-self: flex-end;
+}
+
+.job-card-time-stamp p {
+  margin: 0;
+  color: lightgray;
+}
+
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(52, 23, 124, .8);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}

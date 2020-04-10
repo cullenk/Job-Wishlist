@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Wishlist</title>
+    <script src="https://kit.fontawesome.com/6e358658ed.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+  <body>
+<div class="container">
+
+  <div class="header">
+    <div class="title">
+      <h1><i class="fas fa-magic"></i>WISHLIST</h1>
+    </div>
+    <span class="total-jobs"></span>
+  </div>
+
+    <button class="add-jobs-button" type="button">+</button>
+
+    <div class="job-cards">
+
+    </div>
+
+    <form class="add-job-form" action="index.html" method="post">
+      <div class="job-form-body">
+        <h1>Add a job</h1>
+        <div class="input-field">
+          <input class="company-name" type="text" placeholder="Company Name" required>
+          <i class="icon fab fa-sistrix"></i>
+        </div>
+        <div class="input-field">
+          <input class="job-title" type="text" placeholder="Job Title" required>
+          <i class="icon fas fa-id-card"></i>
+        </div>
+        <button class="submit-job-button" type="submit" name="button">Continue</button>
+      </div>
+    </form>
+
+<div id="overlay"></div>
+
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/jquery.timeago.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
