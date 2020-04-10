@@ -12,6 +12,14 @@ let totalJobs = 0;
 
 // Storage
 
+let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+
+localStorage.setItem('items', JSON.stringify(itemsArray));
+const data = JSON.parse(localStorage.getItem('items'));
+
+data.forEach(item => {
+  createJobCard(item);
+});
 
 // Open the job form
 
@@ -58,6 +66,8 @@ const card = `
      });
   totalJobs++;
   getTotalJobs();
+  itemsArray.push(company, title);
+  localStorage.setItem('items', JSON.stringify(itemsArray));
 }
 
 function getTotalJobs(){
