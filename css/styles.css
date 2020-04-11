@@ -51,9 +51,21 @@ body {
   cursor: pointer;
 }
 
-/* Add Job Pop-Up Form */
+.clear-all-button {
+  color: gray;
+  width: 400px;
+  margin: 20px auto;
+  padding: 6px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+}
 
-.add-job-form {
+/* Forms */
+
+.add-job-form,
+.remove-job-form {
   height: 400px;
   width: 400px;
   position: fixed;
@@ -65,9 +77,11 @@ body {
   border-radius: 10px;
   z-index: 10;
   background-color: white;
+  box-shadow: 1px 1px 1px rgba(52, 23, 124, .8);
 }
 
-.add-job-form.active {
+.add-job-form.active,
+.remove-job-form.active {
   transform: translate(-50%, -50%) scale(1);
 }
 
@@ -116,6 +130,41 @@ body {
   cursor: pointer;
 }
 
+.remove-form-body {
+  height: 300px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin: 20px auto;
+}
+
+.remove-form-content p {
+  color: #333;
+}
+
+.remove-button,
+.cancel-button {
+  padding: 10px;
+  width: 100px;
+  margin: 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.remove-button {
+  background-color: rgba(52, 23, 124, .8);
+}
+
+.cancel-button {
+  background-color: gray;
+}
+
 /* Job Cards */
 
 .job-cards {
@@ -152,8 +201,23 @@ body {
 }
 
 .job-card-title {
-  color: lightgray;
+  color: #333;
   margin: 10px;
+}
+
+.trash-button {
+  padding: 10px;
+  background-color: gray;
+  border-radius: 50%;
+  height: 50px;
+  opacity: .3;
+  cursor: pointer;
+  transition: .5s ease;
+}
+
+.trash-button:hover {
+  opacity: 1;
+  background-color: white;
 }
 
 .job-card-time-stamp {
@@ -164,7 +228,7 @@ body {
 
 .job-card-time-stamp p {
   margin: 0;
-  color: lightgray;
+  color: #333;
 }
 
 

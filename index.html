@@ -15,10 +15,12 @@
     <div class="title">
       <h1><i class="fas fa-magic"></i>WISHLIST</h1>
     </div>
-    <span class="total-jobs"></span>
+    <span class="total-jobs">0 JOBS</span>
   </div>
 
     <button class="add-jobs-button" type="button">+</button>
+    <button class="clear-all-button" type="button">Clear All Jobs</button>
+
 
     <div class="job-cards">
 
@@ -36,6 +38,19 @@
           <i class="icon fas fa-id-card"></i>
         </div>
         <button class="submit-job-button" type="submit" name="button">Continue</button>
+      </div>
+    </form>
+
+    <form class="remove-job-form" action="index.html" method="post">
+      <div class="remove-form-body">
+        <div class="remove-form-content">
+          <h1>Delete Job</h1>
+          <p>Are you sure you want to delete this job?</p>
+          <div class="remove-buttons">
+            <button class="remove-button" type="submit" name="button">Remove</button>
+            <button class="cancel-button" type="submit" name="button">Cancel</button>
+          </div>
+        </div>
       </div>
     </form>
 
