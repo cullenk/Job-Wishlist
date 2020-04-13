@@ -12,7 +12,6 @@ const totalJobContainer = document.querySelector('.total-jobs');
 const clearAllButton = document.querySelector('.clear-all-button');
 const logoUrls = document.querySelectorAll('.company-logo');
 
-let totalJobs = 0;
 
 // Storage
 
