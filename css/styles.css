@@ -8,8 +8,8 @@
 body {
  margin: 0;
  padding: 0;
- background-color: lightblue;
  font-family: 'Roboto', sans-serif;
+ background-color: lightgray;
 }
 
 
@@ -17,9 +17,16 @@ body {
  display: flex;
  flex-direction: column;
  width: 100%;
- margin: 10px;
- padding: 10px;
  height: 100vh;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: #333;
 }
 
 .header {
@@ -43,12 +50,14 @@ body {
 
 .title {
  text-align: center;
- color: rgba(52, 23, 124, .8);
+ font-size: 20px;
+ color: forestgreen;
  font-family: "Indie Flower", sans-serif;
 }
 
 .total-jobs {
- color: gray;
+  font-size: 18px;
+  color: white;
 }
 
 .fa-magic {
@@ -56,10 +65,11 @@ body {
 }
 
 .add-jobs-button {
- color: gray;
+ color: #333;
  width: 400px;
  margin: 20px auto;
  padding: 8px;
+ border: none;
  border-radius: 10px;
  font-weight: bold;
  font-size: 24px;
@@ -67,15 +77,17 @@ body {
 }
 
 .add-jobs-button:hover {
-  background-color: lavender;
+  background-color: lightgreen;
+  color: white;
 }
 
 .clear-all-button {
- color: gray;
+ color: #333;
  width: 400px;
  margin: 20px auto;
  padding: 6px;
  border-radius: 10px;
+ border: none;
  font-weight: bold;
  font-size: 12px;
  cursor: pointer;
@@ -199,6 +211,11 @@ body {
 
 .job-cards {
  height: 100vh;
+ background: url("../img/background.jpg");
+ height: 100vh;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
 }
 
 .job-card-container {
@@ -303,4 +320,13 @@ body {
 #overlay.active {
  opacity: 1;
  pointer-events: all;
+}
+
+@media (min-width: 768px){
+
+.job-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 }
