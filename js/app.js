@@ -1,17 +1,23 @@
 // jshint esversion: 8
+const overlay = document.getElementById('overlay');
 
 const addNewJobButton = document.querySelector('.add-jobs-button');
 const addJobForm = document.querySelector('form');
-const removeForm = document.querySelector('.remove-job-form');
 const submitNewJobButton = document.querySelector('.submit-job-button');
-const overlay = document.getElementById('overlay');
+
+const removeForm = document.querySelector('.remove-job-form');
+
 const companyName = document.querySelector('.company-name');
 const jobTitle = document.querySelector('.job-title');
-const jobCards = document.querySelector('.job-cards');
+
 const totalJobContainer = document.querySelector('.total-jobs');
-const clearAllButton = document.querySelector('.clear-all-button');
+const jobCards = document.querySelector('.job-cards');
+
 const logoUrls = document.querySelectorAll('.company-logo');
 
+const clearAllButton = document.querySelector('.clear-all-button');
+const clearAllForm = document.querySelector('.clear-all-form');
+const clearButtonInForm = document.querySelector('.clear-button');
 
 // Storage
 
@@ -26,7 +32,7 @@ const jobData = JSON.parse(localStorage.getItem('jobItems'));
 
 //loop through our data saved in the array from the previous sessions and recreate cards for them.
   jobData.forEach(job => {
-    createJobCard(job.company, job.title, job.key); //It'll match the index of the title array since they were put in together. Just pass that to the function call.
+    createJobCard(job.company, job.title, job.key, job.time); //It'll match the index of the title array since they were put in together. Just pass that to the function call.
 });
 
 // Open the job form
@@ -42,19 +48,20 @@ addJobForm.addEventListener('submit', (e) => {
   let company = companyName.value;
   let title = jobTitle.value;
   let key = Math.random().toString(36).substr(2, 9);
+  let time = new Date().toISOString();
 
   let job = {
     company: company,
     title: title,
     key: key,
+    time: time
   };
 
   addJobForm.classList.remove('active');
   overlay.classList.remove('active');
-  createJobCard(company, title, key); //Call the create card function with the user's values passed.
+  createJobCard(company, title, key, time); //Call the create card function with the user's values passed.
   jobArray.push(job);
   getTotalJobs();
-  console.log(jobArray.length);
   localStorage.setItem('jobItems', JSON.stringify(jobArray));
   addJobForm.reset();
 });
@@ -62,10 +69,8 @@ addJobForm.addEventListener('submit', (e) => {
 
 
 //Function to create the company cards elements.
-function createJobCard(company, title, key){
+function createJobCard(company, title, key, time){
 var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
-const dateNow = new Date();
-const usableTime = dateNow.toISOString();
 const card = `
   <div id="${key}" class="job-card-container" style="background-color:${randomColor};">
   <div class="job-card-content">
@@ -77,7 +82,7 @@ const card = `
     <div class="fas fa-trash fa-2x clickable"></div>
   </div>
   <div class="job-card-time-stamp">
-    <p>Added <time class="timeago" datetime="${usableTime}"></time></p>
+    <p>Added <time class="timeago" datetime="${time}"></time></p>
   </div>
   </div>
   `;
@@ -109,14 +114,33 @@ function clickMe(e) {
 // REMOVING CARDS
 
 //clear all cards
-clearAllButton.addEventListener('click', () => {
+clearAllButton.addEventListener('click', (e) => {
+  clearPrompt();
+});
+
+//Delete prompt for entire card list
+function clearPrompt(e){
+  const clearButton = document.querySelector('.clear-button');
+  const cancelButton = document.querySelector('.clear-cancel-button');
+  overlay.classList.add('active');
+  clearAllForm.classList.add('active');
+
+clearButton.addEventListener('click', () => {
   jobArray.splice(0, jobArray.length);
   localStorage.clear();
   jobCards.innerHTML = '';
   getTotalJobs();
+  overlay.classList.remove('active');
+  clearAllForm.classList.remove('active');
 });
 
-//Delete prompt for individual card
+cancelButton.addEventListener('click', () => {
+  overlay.classList.remove('active');
+  clearAllForm.classList.remove('active');
+});
+}
+
+
 function deletePrompt(e) {
   let card = e.target;
   const deleteButton = document.querySelector('.delete-button');

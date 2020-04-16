@@ -89,7 +89,8 @@ body {
 /* Forms */
 
 .add-job-form,
-.remove-job-form {
+.remove-job-form,
+.clear-all-form {
  height: 400px;
  width: 400px;
  position: fixed;
@@ -105,7 +106,8 @@ body {
 }
 
 .add-job-form.active,
-.remove-job-form.active {
+.remove-job-form.active,
+.clear-all-form.active {
  transform: translate(-50%, -50%) scale(1);
 }
 
@@ -170,7 +172,9 @@ body {
 }
 
 .delete-button,
-.cancel-button {
+.cancel-button,
+.clear-button,
+.clear-cancel-button {
  padding: 10px;
  width: 100px;
  margin: 10px;
@@ -181,11 +185,13 @@ body {
  cursor: pointer;
 }
 
-.delete-button {
+.delete-button,
+.clear-button {
  background-color: rgba(52, 23, 124, .8);
 }
 
-.cancel-button {
+.cancel-button,
+.clear-cancel-button {
  background-color: gray;
 }
 
